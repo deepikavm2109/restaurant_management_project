@@ -17,4 +17,7 @@ def contact_us(request):
         "email":"resto@gmail.com",
         "address":"151, Rose Building, Lili Road"
     }
-    return render(request,"contact,html",{"contact_info": contact_info})
+    return render(request,"contact.html",{"contact_info": contact_info})
+
+def reservation(request):
+    return render(request, "reservation.html")
