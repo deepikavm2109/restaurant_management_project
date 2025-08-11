@@ -21,3 +21,9 @@ def contact_us(request):
 
 def reservation(request):
     return render(request, "reservation.html")
+
+def rest_home(request):
+    try:
+        restaurant=RES
+
+    except DatabaseError as e:
