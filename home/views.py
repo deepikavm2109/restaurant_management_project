@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.http import HttpResponse
+from django.db import DatabaseError
 # Create your views here.
 @api_view(['GET'])
 def menu_items(request):
@@ -24,6 +26,9 @@ def reservation(request):
 
 def rest_home(request):
     try:
-        restaurant=RES
-
+        restaurant=RESTAURANT.objects.first()
+        if not restaurant:
+            return HttpResponse("No restaurant data available", status=404)
+        return render(request, "home.html", {"restaurant": restaurant})
     except DatabaseError as e:
+        return HttpResponse(f"Database error: {e}", status=500)
