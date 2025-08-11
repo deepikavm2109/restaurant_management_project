@@ -1,8 +1,12 @@
+{% load static %}
 <html>
     <head>
         <title>Home</title>
     </head>
     <body>
+        <div class="rest-logo">
+            <img src="{% static images/icon.png %}" alt="rest-logo">
+        </div>
         <h1>Welcome to our {{restaurant.name}}</h1>
         <p>Phone no. {{restaurant.phone}}</p>
     </body>
